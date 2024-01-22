@@ -1,10 +1,22 @@
 import 'package:flutter/material.dart';
 import 'model/car.dart';
-void main() => runApp(App3());
+
+void main() => runApp(App());
 
 class App extends StatelessWidget {
   Widget _itemBuilder(BuildContext context, int index) {
-    return Text(datas[index].name!);
+    // return Text(datas[index].name!);
+    return ListTile(
+      title: Text(datas[index].name!),
+      subtitle: Text(datas[index].name!),
+      onTap: () => {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailsScreen(item: datas[index].name!),
+            ))
+      },
+    );
   }
 
   @override
@@ -12,7 +24,7 @@ class App extends StatelessWidget {
     return MaterialApp(
         home: Scaffold(
       appBar: AppBar(
-        title:const Text('这是我的第二次提交尝试'),
+        title: const Text('这是我的第二次提交尝试'),
       ),
       // body: MyWidget(),
       body: ListView.builder(
@@ -20,6 +32,24 @@ class App extends StatelessWidget {
         itemCount: datas.length,
       ),
     ));
+  }
+}
+
+class DetailsScreen extends StatelessWidget {
+  final String item;
+
+  DetailsScreen({required this.item});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Details Screen'),
+      ),
+      body: Center(
+        child: Text('Selected Item: $item'),
+      ),
+    );
   }
 }
 
@@ -41,29 +71,25 @@ class _App3State extends State<App3> {
         appBar: AppBar(
           title: const Text('PageName'),
           backgroundColor: const Color.fromARGB(1, 73, 239, 239),
-        ),  
+        ),
         body: Center(
           child: ElevatedButton(
               onPressed: () {
                 setState(() {
-                  if(buttonName == 'clicked'){
-                     buttonName = 'click';
+                  if (buttonName == 'clicked') {
+                    buttonName = 'click';
                   } else {
-                      buttonName = 'clicked';
+                    buttonName = 'clicked';
                   }
-                  
                 });
               },
               child: Text(buttonName)),
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
             BottomNavigationBarItem(
-              icon: Icon(Icons.home), 
-              label: 'Home'),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.settings), 
-              label: 'Settings')
+                icon: Icon(Icons.settings), label: 'Settings')
           ],
           currentIndex: currentIndex,
           onTap: (int index) {
