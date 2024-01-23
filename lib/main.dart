@@ -3,6 +3,7 @@ import 'model/car.dart';
 import 'package:flutter_application_1/favorite.dart';
 import 'package:flutter_application_1/settings.dart';
 import 'package:flutter_application_1/Enjoy.dart';
+import 'package:flutter_application_1/login.dart';
 
 void main() => runApp(App());
 
@@ -30,7 +31,8 @@ class _AppState extends State<App> {
             HomeScreen(),
             const FavoriteHomePage(),
             EnjoyPage(),
-            const SettingsHomePage(),
+            // const SettingsHomePage(),
+            LoginPage(),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
