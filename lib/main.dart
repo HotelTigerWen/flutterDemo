@@ -4,7 +4,7 @@ import 'package:flutter_application_1/favorite.dart';
 import 'package:flutter_application_1/settings.dart';
 import 'package:flutter_application_1/Enjoy.dart';
 import 'package:flutter_application_1/login.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 void main() => runApp(App());
 
 class App extends StatefulWidget {
